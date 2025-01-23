@@ -27,15 +27,11 @@ export default withAuth(
   },
   {
     callbacks: {
-      authorized: ({ token }) => !!token,
+      authorized: () => true, // Allow all requests to pass through middleware
     },
   }
 );
 
 export const config = {
-  matcher: [
-    "/topics/new",
-    "/profile/:path*",
-    "/auth/:path*",
-  ],
+  matcher: ["/topics/new", "/profile/:path*", "/auth/:path*"],
 };
